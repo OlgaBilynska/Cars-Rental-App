@@ -1,1 +1,1 @@
-export { default } from "../CarPriceFilter";
+export { default } from "./CarPriceFilter";

@@ -1,1 +1,1 @@
-export { default } from "../NavWrapper";
+export { default } from "./NavWrapper";

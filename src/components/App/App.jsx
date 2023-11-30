@@ -1,6 +1,6 @@
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-
+import Loader from "../Loader";
 import { AppWrapperStyled } from "./App.styled.js";
 
 const HomePage = lazy(() => import("../../pages/HomePage"));
@@ -11,30 +11,29 @@ function App() {
   return (
     <AppWrapperStyled>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/favorite" element={<FavoritePage />} />
+        <Route
+          path="/"
+          element={<Suspense fallback={<Loader />}>{<HomePage />}</Suspense>}
+        />
+
+        <Route
+          path="/catalog"
+          element={<Suspense fallback={<Loader />}>{<CatalogPage />}</Suspense>}
+        />
+
+        <Route
+          path="/favorite"
+          element={
+            <Suspense fallback={<Loader />}>
+              <FavoritePage />
+            </Suspense>
+          }
+        />
+
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </AppWrapperStyled>
   );
 }
 
 export default App;
-
-// import React from "react";
-// import { Route, Routes } from "react-router-dom";
-// import HomePage from "../../pages/HomePage/HomePage";
-// import CatalogPage from "../../pages/CatalogPage";
-// import FavoritePage from "../../pages/FavoritePage/FavoritePage";
-
-// const App = () => {
-//   return (
-//     <Routes>
-//       <Route path="/" element={<HomePage />} />
-//       <Route path="/catalog" element={<CatalogPage />} />
-//       <Route path="/favorite" element={<FavoritePage />} />
-//     </Routes>
-//   );
-// };
-
-// export default App;
