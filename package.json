@@ -1,7 +1,7 @@
 {
   "name": "cars-app",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "https://OlgaBilynska.github.io/Cars-Rental-App/",
   "dependencies": {
     "@emotion/react": "^11.11.1",
