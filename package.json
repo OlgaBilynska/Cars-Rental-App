@@ -43,7 +43,7 @@
     ]
   },
   "description": "",
-  "main": "index.js",
+  "master": "index.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
