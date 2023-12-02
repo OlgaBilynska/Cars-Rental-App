@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const filtersInitialState = {
-  //   query: "",
   brand: { value: "all", label: "Enter the text" },
   price: { value: 0, label: "To $" },
   mileage: { value: 0, label: "From to" },

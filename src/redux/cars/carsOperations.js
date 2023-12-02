@@ -58,7 +58,7 @@ export const getCars = createAsyncThunk(
   }
 );
 
-export const getCarsBrand = createAsyncThunk(
+export const getCarById = createAsyncThunk(
   "cars/getCarsBrand",
   async (_, thunkAPI) => {
     try {

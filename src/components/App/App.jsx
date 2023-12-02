@@ -6,6 +6,8 @@ import { AppWrapperStyled } from "./App.styled.js";
 
 import { ToastContainer } from "react-toastify";
 import ErrorPage from "../../pages/ErrorPage/ErrorPage.jsx";
+import Navigation from "../Navigation/Navigation.jsx";
+import ContentWrapper from "../ContentWrapper/ContentWrapper.jsx";
 
 const HomePage = lazy(() => import("../../pages/HomePage"));
 const CatalogPage = lazy(() => import("../../pages/CatalogPage"));
@@ -20,29 +22,33 @@ function App() {
 
   return (
     <AppWrapperStyled>
+      <Navigation />
       <ToastContainer />
-      <Routes location={location} key={location.pathname}>
-        <Route
-          path="/home"
-          element={<Suspense fallback={<Loader />}>{<HomePage />}</Suspense>}
-        />
+      <ContentWrapper>
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/home"
+            element={<Suspense fallback={<Loader />}>{<HomePage />}</Suspense>}
+          />
 
-        <Route
-          path="/catalog"
-          element={<Suspense fallback={<Loader />}>{<CatalogPage />}</Suspense>}
-        />
+          <Route
+            path="/catalog"
+            element={
+              <Suspense fallback={<Loader />}>{<CatalogPage />}</Suspense>
+            }
+          />
 
-        <Route
-          path="/favorite"
-          element={
-            <Suspense fallback={<Loader />}>
-              <FavoritePage />
-            </Suspense>
-          }
-        />
-
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
+          <Route
+            path="/favorite"
+            element={
+              <Suspense fallback={<Loader />}>
+                <FavoritePage />
+              </Suspense>
+            }
+          />
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      </ContentWrapper>
     </AppWrapperStyled>
   );
 }
