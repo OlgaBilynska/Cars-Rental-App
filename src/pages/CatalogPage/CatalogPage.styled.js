@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { AccentColorStyled } from "../../components/ModalContent/ModalContent.style";
 
 export const CarItemsWrapperStyled = styled.ul`
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   column-gap: 29px;
   row-gap: 50px;
@@ -16,15 +16,12 @@ export const CarItemStyled = styled.li`
   flex-direction: column;
   justify-content: space-between;
   gap: 28px;
-
-  outline: 1px solid black;
 `;
 
 export const ImgCarStyled = styled.img`
   width: 100%;
   height: 268px;
 
-  border: 1px solid orange;
   border-radius: 14px;
 
   object-fit: cover;
@@ -79,6 +76,11 @@ export const InfoWrapperStyled = styled.div`
 `;
 
 export const InfoItemStyled = styled.p`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-overflow: nowrap;
+
   &::after {
     content: "";
     margin-left: 6px;
@@ -87,6 +89,7 @@ export const InfoItemStyled = styled.p`
 `;
 
 export const InfoItemLastStyled = styled.p`
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-overflow: nowrap;
@@ -100,4 +103,28 @@ export const ContentWrapperStyled = styled.div`
 
 export const AccentColStyled = styled.span`
   color: var(--color-button);
+`;
+
+export const LoadMoreStyled = styled.div`
+  margin-top: 100px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-button);
+
+  text-decoration: underline;
+`;
+
+export const HeartIconStyled = styled.svg`
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  width: 18px;
+  height: 18px;
+`;
+
+export const ImageWrapperStyled = styled.div`
+  position: relative;
 `;

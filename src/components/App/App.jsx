@@ -25,7 +25,7 @@ function App() {
       <Navigation />
       <ToastContainer />
       <ContentWrapper>
-        <Routes location={location} key={location.pathname}>
+        <Routes path="/" location={location} key={location.pathname}>
           <Route
             path="/home"
             element={<Suspense fallback={<Loader />}>{<HomePage />}</Suspense>}

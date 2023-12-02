@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import ModalCarItem from "../../components/ModalCarItem";
 import { selectCars } from "../../redux/selectors";
 import { getCars } from "../../redux/cars/carsOperations";
-// import Button from "../../components/Button/Button";
+import sprite from "../../assets/sprite.svg";
 import {
   CarItemsWrapperStyled,
   CarItemStyled,
@@ -16,6 +16,9 @@ import {
   InfoItemLastStyled,
   ContentWrapperStyled,
   AccentColStyled,
+  LoadMoreStyled,
+  HeartIconStyled,
+  ImageWrapperStyled,
 } from "./CatalogPage.styled";
 import ModalContent from "../../components/ModalContent/ModalContent";
 
@@ -26,6 +29,7 @@ const CatalogPage = () => {
   };
 
   const carsList = useSelector(selectCars);
+  console.log(carsList);
 
   const dispatch = useDispatch();
 
@@ -59,7 +63,13 @@ const CatalogPage = () => {
             return (
               <CarItemStyled key={id}>
                 <ContentWrapperStyled>
-                  <ImgCarStyled src={img} alt={description} />
+                  <ImageWrapperStyled>
+                    <ImgCarStyled src={img} alt={description} />
+                    <HeartIconStyled>
+                      <use href={`${sprite}#icon-heart`} />
+                    </HeartIconStyled>
+                  </ImageWrapperStyled>
+
                   <TextWrapperStyled>
                     <TitleWrapperStyled>
                       <p>
@@ -101,6 +111,7 @@ const CatalogPage = () => {
           }
         )}
       </CarItemsWrapperStyled>
+      <LoadMoreStyled>Load more</LoadMoreStyled>
     </>
   );
 };

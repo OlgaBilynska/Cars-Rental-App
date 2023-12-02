@@ -12,7 +12,7 @@ export const WrapperStyled = styled.div`
 
 export const NavWrapperStyled = styled.ul`
   display: flex;
-  margin-left: auto;
+  padding: 0 128px;
   justify-content: space-around;
 `;
 
@@ -32,5 +32,9 @@ export const NavElStyled = styled(NavLink)`
   &:hover {
     background-color: var(--color-button-hover);
     border-color: var(--color-button-hover);
+  }
+
+  &.active {
+    background-color: var(--color-button-hover);
   }
 `;
