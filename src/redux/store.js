@@ -15,7 +15,6 @@ import { carsReducer } from "./cars/carsSlice";
 import { filtersReducer } from "./filters/filterSlice";
 import { favoriteReducer } from "./favorites/favoriteSlice";
 
-
 const favoritePersistConfig = {
   key: "favorite",
   storage,

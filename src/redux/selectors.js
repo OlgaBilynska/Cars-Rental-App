@@ -1,5 +1,5 @@
 export const selectCars = (state) => state.cars.cars;
-export const selectCarById = (state) => state.cars.id;
+// export const selectCarById = (state) => state.cars.id;
 export const selectCarsIsLoading = (state) => state.cars.isLoading;
 export const selectCarsError = (state) => state.cars.error;
 
