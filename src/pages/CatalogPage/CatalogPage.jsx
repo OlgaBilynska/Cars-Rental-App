@@ -12,7 +12,12 @@ import {
   TitleWrapperStyled,
   ImgCarStyled,
   TextWrapperStyled,
+  InfoItemStyled,
+  InfoItemLastStyled,
+  ContentWrapperStyled,
+  AccentColStyled,
 } from "./CatalogPage.styled";
+import ModalContent from "../../components/ModalContent/ModalContent";
 
 const CatalogPage = () => {
   const [ModalOpen, setModalOpen] = useState(false);
@@ -21,7 +26,6 @@ const CatalogPage = () => {
   };
 
   const carsList = useSelector(selectCars);
-  console.log(carsList);
 
   const dispatch = useDispatch();
 
@@ -50,37 +54,53 @@ const CatalogPage = () => {
             address,
             rentalConditions,
             mileage,
-          }) => (
-            <CarItemStyled key={id}>
-              <ImgCarStyled src={img} alt={description} />
-              <TextWrapperStyled>
-                <TitleWrapperStyled>
-                  <p>
-                    {make} {model}, {year}
-                  </p>
+          }) => {
+            console.log("keyCatalog", id);
+            return (
+              <CarItemStyled key={id}>
+                <ContentWrapperStyled>
+                  <ImgCarStyled src={img} alt={description} />
+                  <TextWrapperStyled>
+                    <TitleWrapperStyled>
+                      <p>
+                        {make} <AccentColStyled>{model}</AccentColStyled>,{" "}
+                        {year}
+                      </p>
 
-                  <p>{rentalPrice}</p>
-                </TitleWrapperStyled>
+                      <p>{rentalPrice}</p>
+                    </TitleWrapperStyled>
 
-                <InfoWrapperStyled>
-                  <p>{address.split(",").splice(1, 1)}</p>
-                  <p>{address.split(",").splice(2, 1)}</p>
-                  <p>{rentalCompany}</p>
-                </InfoWrapperStyled>
-                <InfoWrapperStyled>
-                  <p>{type}</p>
-                  <p>{model}</p>
-                  <p>{id}</p>
-                  <p>{functionalities[0]}</p>
-                </InfoWrapperStyled>
-              </TextWrapperStyled>
+                    <InfoWrapperStyled>
+                      <InfoItemStyled>
+                        {address.split(",").splice(1, 1)}
+                      </InfoItemStyled>
+                      <InfoItemStyled>
+                        {address.split(",").splice(2, 1)}
+                      </InfoItemStyled>
+                      <InfoItemStyled>{rentalCompany}</InfoItemStyled>
+                    </InfoWrapperStyled>
+                    <InfoWrapperStyled>
+                      <InfoItemStyled>{type}</InfoItemStyled>
+                      <InfoItemStyled>{model}</InfoItemStyled>
+                      <InfoItemStyled>{id}</InfoItemStyled>
+                      <InfoItemLastStyled>
+                        {functionalities[0]}
+                      </InfoItemLastStyled>
+                    </InfoWrapperStyled>
+                  </TextWrapperStyled>
+                </ContentWrapperStyled>
 
-              <LinkBtnStyled onClick={toggleModal}>Learn More</LinkBtnStyled>
-            </CarItemStyled>
-          )
+                <LinkBtnStyled onClick={toggleModal}>Learn More</LinkBtnStyled>
+                {ModalOpen && (
+                  <ModalCarItem id={id} onClick={toggleModal}>
+                    <ModalContent />
+                  </ModalCarItem>
+                )}
+              </CarItemStyled>
+            );
+          }
         )}
       </CarItemsWrapperStyled>
-      {ModalOpen && <ModalCarItem onClick={toggleModal} />}
     </>
   );
 };

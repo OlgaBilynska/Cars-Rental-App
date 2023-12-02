@@ -5,10 +5,10 @@ import {
   BackdropModalStyled,
   ModalContainerStyled,
   CloseBtnStyled,
-  ModalChildrenStyled,
 } from "../ModalCarItem/ModalCarItem.styled";
+import ModalContent from "../ModalContent/ModalContent";
 
-const ModalCarItem = ({ children, onClick }) => {
+const ModalCarItem = ({ children, onClick, id }) => {
   const handleKeyDown = (e) => {
     if (e.code === "Escape") {
       onClick();
@@ -33,6 +33,8 @@ const ModalCarItem = ({ children, onClick }) => {
     };
   });
 
+  console.log("modal key", id);
+
   return (
     <ModalPortal>
       <BackdropModalStyled onClick={handleBackdropClick}>
@@ -40,7 +42,7 @@ const ModalCarItem = ({ children, onClick }) => {
           <CloseBtnStyled onClick={handleCloseClick}>
             <use href={`${sprite}#icon-x`} />
           </CloseBtnStyled>
-          <ModalChildrenStyled>{children}</ModalChildrenStyled>
+          <ModalContent id={id}>{children}</ModalContent>
         </ModalContainerStyled>
       </BackdropModalStyled>
     </ModalPortal>

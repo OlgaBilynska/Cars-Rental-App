@@ -18,7 +18,7 @@ export const ModalContainerStyled = styled.div`
   transform: translate(-50%, -50%);
 
   padding: 40px;
-  min-width: 541px;
+  width: 541px;
 
   background-color: var(--color-text-button);
 

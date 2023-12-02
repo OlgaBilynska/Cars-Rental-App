@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { AccentColorStyled } from "../../components/ModalContent/ModalContent.style";
 
 export const CarItemsWrapperStyled = styled.ul`
   display: flex;
@@ -10,17 +11,26 @@ export const CarItemsWrapperStyled = styled.ul`
 
 export const CarItemStyled = styled.li`
   width: 274px;
-  height: 354px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 28px;
+
+  outline: 1px solid black;
 `;
 
 export const ImgCarStyled = styled.img`
   width: 100%;
-  margin-bottom: 14px;
+  height: 268px;
+
+  border: 1px solid orange;
+  border-radius: 14px;
+
+  object-fit: cover;
 `;
 
-export const TextWrapperStyled = styled.div`
-  margin-bottom: 28px;
-`;
+export const TextWrapperStyled = styled.div``;
 
 export const LinkBtnStyled = styled(Link)`
   display: block;
@@ -52,21 +62,42 @@ export const TitleWrapperStyled = styled.div`
   display: flex;
   justify-content: space-between;
 
+  margin-bottom: 8px;
+
   font-size: 16px;
   line-height: 1.5;
 `;
 
 export const InfoWrapperStyled = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 6px;
 
   font-size: 12px;
   line-height: 1.5;
-
   color: var(--color-text-info);
+`;
 
+export const InfoItemStyled = styled.p`
   &::after {
-    border-right: 1px solid var(--color-text-info);
+    content: "";
+    margin-left: 6px;
+    border-right: 1px solid #1214171a;
   }
+`;
+
+export const InfoItemLastStyled = styled.p`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-overflow: nowrap;
+`;
+
+export const ContentWrapperStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+`;
+
+export const AccentColStyled = styled.span`
+  color: var(--color-button);
 `;
