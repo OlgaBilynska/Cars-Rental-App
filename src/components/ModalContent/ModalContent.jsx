@@ -11,7 +11,6 @@ import {
   AccentColorStyled,
   InfoModalWrapperStyled,
   ModalContentWrapper,
-  AccessoriesWrapperStyled,
   InfoTitleWrapperStyled,
   ImgTextWrapperStyled,
   InfoModalItemStyled,
@@ -42,11 +41,8 @@ const ModalContent = ({ id }) => {
     engineSize,
     accessories,
     functionalities,
-    rentalPrice,
-    rentalCompany,
     address,
     rentalConditions,
-    mileage,
   } = carItem;
 
   return (
