@@ -7,7 +7,7 @@ import { AppWrapperStyled } from "./App.styled.js";
 import { ToastContainer } from "react-toastify";
 import ErrorPage from "../../pages/ErrorPage/ErrorPage.jsx";
 import ContentWrapper from "../ContentWrapper/ContentWrapper.jsx";
-import carBackground from "../../assets/car_background.jpg";
+// import carBackground from "../../assets/car_background.jpg";
 
 const HomePage = lazy(() => import("../../pages/HomePage"));
 const CatalogPage = lazy(() => import("../../pages/CatalogPage"));
@@ -16,18 +16,19 @@ const FavoritePage = lazy(() => import("../../pages/FavoritePage"));
 function App() {
   const location = useLocation();
 
-  let backgroundImage = null;
+  // let backgroundImage = null;
 
   if (location.pathname === "/") {
     return <Navigate to="/home" />;
   }
 
-  if (location.pathname === "/home") {
-    backgroundImage = `url(${carBackground})`;
-  }
+  // if (location.pathname === "/home") {
+  //   backgroundImage = `url(${carBackground})`;
+  // }
 
   return (
-    <AppWrapperStyled $backgroundImage={backgroundImage}>
+    // <AppWrapperStyled $backgroundImage={backgroundImage}>
+    <AppWrapperStyled>
       <ToastContainer />
       <ContentWrapper>
         <Routes path="/" location={location} key={location.pathname}>
