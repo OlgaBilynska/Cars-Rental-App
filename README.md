@@ -1,11 +1,9 @@
-Drive Wonders - Car Rental Service
+<h1>Drive Wonders - Car Rental Service</h1>
 
-Overview
+<h2>Overview</h2>
 "Drive Wonders" is a modern car rental service that allows users to browse and rent cars for their travel needs. This web application is built using React and Redux for state management, and it utilizes MockAPI for simulating a backend server.
 
-Drive Wonders
-
-Features
+<h2>Features</h2>
 User Authentication: Users can create accounts, log in, and manage their rental history.
 
 Browse Cars: Extensive collection of luxury cars with detailed information.
