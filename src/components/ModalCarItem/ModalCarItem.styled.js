@@ -5,6 +5,8 @@ export const BackdropModalStyled = styled.div`
   top: 0;
   left: 0;
 
+  z-index: 200;
+
   width: 100vw;
   height: 100vh;
 
@@ -19,6 +21,9 @@ export const ModalContainerStyled = styled.div`
 
   padding: 40px;
   width: 541px;
+
+  overflow: hidden;
+  z-index: 200;
 
   background-color: var(--color-text-button);
 

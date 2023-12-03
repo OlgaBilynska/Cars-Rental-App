@@ -1,5 +1,12 @@
+import Navigation from "../../components/Navigation";
+
 const FavoritePage = () => {
-  return <div>Favorite Page</div>;
+  return (
+    <div>
+      <Navigation />
+      Favorite Page
+    </div>
+  );
 };
 
 export default FavoritePage;

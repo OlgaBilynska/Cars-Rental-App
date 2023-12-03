@@ -94,25 +94,8 @@ export const InfoItemLastStyled = styled.p`
   text-overflow: nowrap;
 `;
 
-export const ContentWrapperStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-`;
-
 export const AccentColStyled = styled.span`
   color: var(--color-button);
-`;
-
-export const LoadMoreStyled = styled.button`
-  margin-top: 100px;
-
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.5;
-  color: var(--color-button);
-
-  text-decoration: underline;
 `;
 
 export const HeartIconStyled = styled.svg`
@@ -126,4 +109,24 @@ export const HeartIconStyled = styled.svg`
 
 export const ImageWrapperStyled = styled.div`
   position: relative;
+`;
+
+export const ContentWrapperStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+`;
+
+export const LoadMoreStyled = styled.button`
+  margin-top: 100px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-button);
+
+  text-decoration: underline;
+
+  background-color: transparent;
+  border: none;
 `;

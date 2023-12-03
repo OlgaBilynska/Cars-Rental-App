@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 export const WrapperStyled = styled.div`
   position: fixed;
+  top: 0px;
+  left: 0px;
+
   width: 100vw;
 
   padding: 22px 0;

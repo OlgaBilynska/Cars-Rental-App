@@ -23,6 +23,7 @@ import {
 import ModalContent from "../../components/ModalContent/ModalContent";
 import CarFilters from "../../components/CarFilters/CarFilters";
 import { onPageChange } from "../../redux/cars/carsOperations";
+import Navigation from "../../components/Navigation";
 
 const CatalogPage = () => {
   const carsList = useSelector(selectCars);
@@ -57,6 +58,7 @@ const CatalogPage = () => {
 
   return (
     <>
+      <Navigation />
       <CarFilters />
       <CarItemsWrapperStyled>
         {carsList.map(

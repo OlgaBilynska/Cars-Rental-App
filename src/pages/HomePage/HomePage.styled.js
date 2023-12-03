@@ -2,7 +2,14 @@ import styled from "@emotion/styled";
 import { ButtonStyled } from "../../components/Button/Button.styled";
 
 export const HomeWrapperStyled = styled.div`
-  background-color: var(--color-text-button);
+  /* background-color: var(--color-text-button); */
+
+  padding: 30px;
+  background-color: #000;
+  opacity: 0.8;
+  color: white;
+
+  border-radius: 10px;
 `;
 
 export const HomeTitleStyled = styled.h1`
