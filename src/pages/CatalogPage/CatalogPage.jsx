@@ -22,7 +22,7 @@ import {
   ImageWrapperStyled,
 } from "./CatalogPage.styled";
 import ModalContent from "../../components/ModalContent/ModalContent";
-// import CarFilters from "../../components/CarFilters/CarFilters";
+import CarFilters from "../../components/CarFilters/CarFilters";
 import { onPageChange } from "../../redux/cars/carsOperations";
 import Navigation from "../../components/Navigation";
 
@@ -62,7 +62,7 @@ const CatalogPage = () => {
   return (
     <>
       <Navigation />
-      {/* <CarFilters /> */}
+      <CarFilters />
       <CarItemsWrapperStyled>
         {carsList.map(
           ({

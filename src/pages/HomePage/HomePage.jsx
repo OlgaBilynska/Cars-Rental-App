@@ -56,7 +56,7 @@ const HomePage = () => {
             DriveWonders Car Rentals. Your adventure begins here!
           </HomeTextStyled>
         </HomeTextListStyled>
-        <Link to="/advertisement">
+        <Link to="/catalog">
           <ButtonHomeStyled>Explore Now</ButtonHomeStyled>
         </Link>
       </HomeWrapperStyled>

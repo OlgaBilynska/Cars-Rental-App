@@ -41,14 +41,14 @@ function App() {
           />
 
           <Route
-            path="/advertisement"
+            path="/catalog"
             element={
               <Suspense fallback={<Loader />}>{<CatalogPage />}</Suspense>
             }
           />
 
           <Route
-            path="/advertisement/favorites"
+            path="/favorites"
             element={
               <Suspense fallback={<Loader />}>
                 <FavoritePage />

@@ -12,10 +12,10 @@ const Navigation = () => {
           <NavElStyled to="/">Home</NavElStyled>
         </li>
         <li>
-          <NavElStyled to="/advertisement">Catalog</NavElStyled>
+          <NavElStyled to="/catalog">Catalog</NavElStyled>
         </li>
         <li>
-          <NavElStyled to="/advertisement/favorites">Favorite</NavElStyled>
+          <NavElStyled to="/favorites">Favorite</NavElStyled>
         </li>
       </NavWrapperStyled>
     </WrapperStyled>
