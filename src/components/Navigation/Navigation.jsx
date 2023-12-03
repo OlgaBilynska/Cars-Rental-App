@@ -9,7 +9,7 @@ const Navigation = () => {
     <WrapperStyled>
       <NavWrapperStyled>
         <li>
-          <NavElStyled to="/home">Home</NavElStyled>
+          <NavElStyled to="/">Home</NavElStyled>
         </li>
         <li>
           <NavElStyled to="/catalog">Catalog</NavElStyled>
