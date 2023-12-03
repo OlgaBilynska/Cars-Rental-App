@@ -41,13 +41,13 @@ const CarFilters = () => {
   //     return `${string[0].toUpperCase()}${string.slice(1)}`;
   //   };
 
-  const brandList = [
-    { value: "all", label: "All brands" },
-    ...cars.map(({ id, make }) => ({
-      value: id,
-      label: make,
-    })),
-  ];
+  //   const brandList = [
+  //     { value: "all", label: "All brands" },
+  //     ...cars.map(({ id, make }) => ({
+  //       value: id,
+  //       label: make,
+  //     })),
+  //   ];
 
   const priceList = [
     ...cars.map(({ id, rentalPrice }) => ({
@@ -56,7 +56,7 @@ const CarFilters = () => {
     })),
   ];
 
-  console.log("b", brandList);
+  //   console.log("b", brandList);
 
   return (
     <FilterWrapperStyled>
@@ -65,7 +65,7 @@ const CarFilters = () => {
           <SelectBrandStyled
             value={brand || ""}
             onChange={handleBrandsChange}
-            options={brandList}
+            // options={brandList}
           >
             <option disabled value="">
               Select your brand

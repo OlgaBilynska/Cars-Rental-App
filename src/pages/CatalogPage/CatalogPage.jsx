@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { nanoid } from "nanoid";
 import ModalCarItem from "../../components/ModalCarItem";
 import { selectCars } from "../../redux/selectors";
 import { getCars } from "../../redux/cars/carsOperations";
@@ -30,9 +29,9 @@ const CatalogPage = () => {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [page, setPage] = useState(1);
+  const [clickedCarId, setClickedCarId] = useState(null);
 
   const toggleModal = () => {
-    // e.stopPropagation();
     setModalOpen((prevState) => !prevState);
   };
 
@@ -49,6 +48,11 @@ const CatalogPage = () => {
   const onLoadMore = () => {
     setPage(page + 1);
     console.log("page", page);
+  };
+
+  const onCarItemClick = (carID) => {
+    setClickedCarId(carID);
+    toggleModal();
   };
 
   return (
@@ -72,9 +76,8 @@ const CatalogPage = () => {
             rentalCompany,
             address,
           }) => {
-            const carID = nanoid();
             return (
-              <CarItemStyled key={carID}>
+              <CarItemStyled key={id}>
                 <ContentWrapperStyled>
                   <ImageWrapperStyled>
                     {img ? (
@@ -119,8 +122,10 @@ const CatalogPage = () => {
                   </TextWrapperStyled>
                 </ContentWrapperStyled>
 
-                <LinkBtnStyled onClick={toggleModal}>Learn More</LinkBtnStyled>
-                {modalOpen && (
+                <LinkBtnStyled onClick={() => onCarItemClick(id)}>
+                  Learn More
+                </LinkBtnStyled>
+                {modalOpen && id === clickedCarId && (
                   <ModalCarItem onClick={toggleModal}>
                     <ModalContent id={id} />
                   </ModalCarItem>

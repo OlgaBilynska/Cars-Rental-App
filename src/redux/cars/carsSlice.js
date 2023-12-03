@@ -31,7 +31,7 @@ const carsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.page = state.page + 1;
-        state.cars = action.payload;
+        state.cars = [...state.cars, ...action.payload];
       })
       .addCase(onPageChange.pending, (state) => {
         state.isLoading = true;
