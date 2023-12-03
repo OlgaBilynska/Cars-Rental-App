@@ -47,9 +47,6 @@ const CatalogPage = () => {
   }, [dispatch, page]);
 
   const onLoadMore = () => {
-    // if (page === totalPage - 1) {
-    //   setIsLoadMore(true);
-    // }
     setPage(page + 1);
     console.log("page", page);
   };
