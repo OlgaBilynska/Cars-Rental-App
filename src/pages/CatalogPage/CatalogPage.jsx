@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { nanoid } from "nanoid";
 import ModalCarItem from "../../components/ModalCarItem";
 import { selectCars } from "../../redux/selectors";
 import { getCars } from "../../redux/cars/carsOperations";
@@ -21,7 +22,7 @@ import {
   ImageWrapperStyled,
 } from "./CatalogPage.styled";
 import ModalContent from "../../components/ModalContent/ModalContent";
-import CarFilters from "../../components/CarFilters/CarFilters";
+// import CarFilters from "../../components/CarFilters/CarFilters";
 import { onPageChange } from "../../redux/cars/carsOperations";
 import Navigation from "../../components/Navigation";
 
@@ -56,10 +57,12 @@ const CatalogPage = () => {
     toggleModal();
   };
 
+  // const carID = nanoid();
+
   return (
     <>
       <Navigation />
-      <CarFilters />
+      {/* <CarFilters /> */}
       <CarItemsWrapperStyled>
         {carsList.map(
           ({
@@ -79,7 +82,7 @@ const CatalogPage = () => {
             address,
           }) => {
             return (
-              <CarItemStyled key={id}>
+              <CarItemStyled key={nanoid()}>
                 <ContentWrapperStyled>
                   <ImageWrapperStyled>
                     {img ? (
