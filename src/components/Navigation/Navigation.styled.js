@@ -32,11 +32,14 @@ export const NavElStyled = styled(NavLink)`
 
   cursor: pointer;
 
-  transition: border 2500ms var(--timing-function);
+  transform: scale(1);
+  transition: border 2500ms var(--timing-function),
+    transform 250ms var(--timing-function);
 
   &:hover {
     background-color: var(--color-button-hover);
     border-color: var(--color-button-hover);
+    transform: scale(1.05);
   }
 
   &.active {

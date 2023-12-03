@@ -137,7 +137,7 @@ const ModalContent = ({ id }) => {
         </TextConditionsWrapperStyled>
       </ConditionsWrapperStyled>
 
-      <BtnRentalStyled>Rental Car</BtnRentalStyled>
+      <BtnRentalStyled href="tel:+380730000000">Rental Car</BtnRentalStyled>
     </ModalContentWrapper>
   );
 };

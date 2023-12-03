@@ -14,28 +14,42 @@ export const ImgCarStyled = styled.img`
   border-radius: 14px;
 
   object-fit: cover;
+
+  transform: scale(1);
+
+  transition: transform 250ms var(--timing-function);
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
-export const BtnRentalStyled = styled.button`
-  display: inline;
+export const BtnRentalStyled = styled.a`
+  display: inline-block;
+
   text-align: center;
 
   width: 168px;
   padding: 12px 50px;
-
+  white-space: nowrap;
   background-color: var(--color-button);
   color: var(--color-text-button);
 
   border: 1px solid var(--color-button);
   border-radius: 12px;
 
+  font-size: 14px;
+
   cursor: pointer;
 
-  transition: border 2500ms var(--timing-function);
+  transform: scale(1);
+  transition: border 2500ms var(--timing-function),
+    transform 250ms var(--timing-function);
 
   &:hover {
     background-color: var(--color-button-hover);
     border-color: var(--color-button-hover);
+    transform: scale(1.05);
   }
 `;
 
