@@ -12,10 +12,11 @@ import {
   LabelStyled,
   FilterWrapperStyled,
   FilterNameStyled,
-  SelectStyled,
+  SelectBrandStyled,
   SelectWrapperStyled,
   StyledInputOne,
   StyledInputTwo,
+  SelectPriceStyled,
 } from "./CarFilters.styled";
 
 const CarFilters = () => {
@@ -61,7 +62,7 @@ const CarFilters = () => {
     <FilterWrapperStyled>
       <LabelStyled>
         <SelectWrapperStyled>
-          <SelectStyled
+          <SelectBrandStyled
             value={brand || ""}
             onChange={handleBrandsChange}
             options={brandList}
@@ -74,23 +75,23 @@ const CarFilters = () => {
                 {brandOption}
               </option>
             ))} */}
-          </SelectStyled>
+          </SelectBrandStyled>
           <FilterNameStyled>Car Brand</FilterNameStyled>
         </SelectWrapperStyled>
 
         <SelectWrapperStyled>
-          <SelectStyled
+          <SelectPriceStyled
             value={price}
             // onChange={handleBrandsChange}
             placeholder="To $"
             options={priceList}
-          ></SelectStyled>
+          ></SelectPriceStyled>
           <FilterNameStyled>Price/ 1 hour</FilterNameStyled>
         </SelectWrapperStyled>
 
         <SelectWrapperStyled>
           <StyledInputOne
-            // value={mileage}
+            value={mileage}
             // onChange={handleBrandsChange}
             placeholder="From"
           />

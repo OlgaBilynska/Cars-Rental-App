@@ -51,8 +51,24 @@ export const FilterNameStyled = styled.p`
   white-space: nowrap;
 `;
 
-export const SelectStyled = styled.select`
+export const SelectBrandStyled = styled.select`
   width: 100%;
+  min-width: 224px;
+  padding: 14px 18px;
+  box-sizing: border-box;
+
+  border-radius: 14px;
+  background-color: #f7f7fb;
+  border: transparent;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const SelectPriceStyled = styled.select`
+  width: 100%;
+  min-width: 125px;
   padding: 14px 18px;
   box-sizing: border-box;
 
@@ -79,6 +95,10 @@ export const StyledInputOne = styled.input`
   border-right: 1px solid rgba(138, 138, 137, 0.2);
 
   background-color: #f7f7fb;
+
+  &:focus {
+    border-color: var(--color-button);
+  }
 `;
 
 export const StyledInputTwo = styled.input`
@@ -89,4 +109,7 @@ export const StyledInputTwo = styled.input`
   border: transparent;
 
   background-color: #f7f7fb;
+  &:focus {
+    border-color: var(--color-button);
+  }
 `;
