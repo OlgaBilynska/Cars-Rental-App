@@ -1,4 +1,5 @@
 import React from "react";
+import { nanoid } from "nanoid";
 import { useSelector } from "react-redux";
 import { selectCars } from "../../redux/selectors";
 import {
@@ -27,9 +28,8 @@ import {
 const ModalContent = ({ id }) => {
   const carsList = useSelector(selectCars);
 
-  const car = carsList.filter((car) => car.id === id);
+  const carItem = carsList.find((car) => car.id === id);
 
-  const carItem = car[0];
   const {
     year,
     make,
@@ -88,14 +88,24 @@ const ModalContent = ({ id }) => {
         </SubTitleModalStyled>
         <AccessoriesFuncWrapperStyled>
           <InfoModalAccessoriesWrapperStyled>
-            {accessories.map((accessory) => (
-              <InfoModalItemStyled>{accessory}</InfoModalItemStyled>
-            ))}
+            {accessories.map((accessory) => {
+              const accessoriesID = nanoid();
+              return (
+                <InfoModalItemStyled key={accessoriesID}>
+                  {accessory}
+                </InfoModalItemStyled>
+              );
+            })}
           </InfoModalAccessoriesWrapperStyled>
           <InfoModalTextWrapperStyled>
-            {functionalities.map((functionality) => (
-              <InfoModalItemStyled>{functionality}</InfoModalItemStyled>
-            ))}
+            {functionalities.map((functionality) => {
+              const funcID = nanoid();
+              return (
+                <InfoModalItemStyled key={funcID}>
+                  {functionality}
+                </InfoModalItemStyled>
+              );
+            })}
           </InfoModalTextWrapperStyled>
         </AccessoriesFuncWrapperStyled>
       </ConditionsWrapperStyled>

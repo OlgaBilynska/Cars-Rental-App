@@ -11,7 +11,6 @@ export const ImgCarStyled = styled.img`
   width: 100%;
   height: 248px;
 
-  border: 1px solid orange;
   border-radius: 14px;
 
   object-fit: cover;
@@ -52,8 +51,8 @@ export const InfoModalTextWrapperStyled = styled(InfoWrapperStyled)``;
 export const TextConditionsWrapperStyled = styled.div`
   display: flex;
   flex-wrap: wrap;
-  column-gap: 36px;
-  row-gap: 14px;
+  column-gap: 8px;
+  row-gap: 8px;
 `;
 
 export const InfoModalAccessoriesWrapperStyled = styled.div`
@@ -125,10 +124,10 @@ export const AccessoriesFuncWrapperStyled = styled.div`
 
 export const RentalConditionStyled = styled.div`
   display: flex;
-  gap: 36px;
+  gap: 8px;
   flex-wrap: wrap;
-  column-gap: 36px;
-  row-gap: 14px;
+  column-gap: 8px;
+  row-gap: 8px;
 
   font-size: 12px;
   line-height: 1.5;
@@ -138,6 +137,10 @@ export const RentalConditionStyled = styled.div`
 export const ConditionStyled = styled.div`
   display: flex;
   flex-wrap: nowrap;
+
+  padding: 7px 14px;
+  border-radius: 35px;
+  background-color: #f9f9f9;
 `;
 
 export const ConditionsWrapperStyled = styled.div`

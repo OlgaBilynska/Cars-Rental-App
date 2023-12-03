@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { nanoid } from "nanoid";
 import ModalCarItem from "../../components/ModalCarItem";
 import { selectCars } from "../../redux/selectors";
 import { getCars } from "../../redux/cars/carsOperations";
@@ -21,15 +22,17 @@ import {
   ImageWrapperStyled,
 } from "./CatalogPage.styled";
 import ModalContent from "../../components/ModalContent/ModalContent";
+import CarFilters from "../../components/CarFilters/CarFilters";
 
 const CatalogPage = () => {
-  const [ModalOpen, setModalOpen] = useState(false);
+  const carsList = useSelector(selectCars);
+
+  const [modalOpen, setModalOpen] = useState(false);
+
   const toggleModal = () => {
+    // e.stopPropagation();
     setModalOpen((prevState) => !prevState);
   };
-
-  const carsList = useSelector(selectCars);
-  console.log(carsList);
 
   const dispatch = useDispatch();
 
@@ -39,6 +42,7 @@ const CatalogPage = () => {
 
   return (
     <>
+      <CarFilters />
       <CarItemsWrapperStyled>
         {carsList.map(
           ({
@@ -56,12 +60,10 @@ const CatalogPage = () => {
             rentalPrice,
             rentalCompany,
             address,
-            rentalConditions,
-            mileage,
           }) => {
-            console.log("keyCatalog", id);
+            const carID = nanoid();
             return (
-              <CarItemStyled key={id}>
+              <CarItemStyled key={carID}>
                 <ContentWrapperStyled>
                   <ImageWrapperStyled>
                     <ImgCarStyled src={img} alt={description} />
@@ -101,9 +103,9 @@ const CatalogPage = () => {
                 </ContentWrapperStyled>
 
                 <LinkBtnStyled onClick={toggleModal}>Learn More</LinkBtnStyled>
-                {ModalOpen && (
-                  <ModalCarItem id={id} onClick={toggleModal}>
-                    <ModalContent />
+                {modalOpen && (
+                  <ModalCarItem onClick={toggleModal}>
+                    <ModalContent id={id} />
                   </ModalCarItem>
                 )}
               </CarItemStyled>

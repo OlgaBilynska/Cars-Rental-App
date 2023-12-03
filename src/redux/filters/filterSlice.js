@@ -22,11 +22,7 @@ const filtersSlice = createSlice({
   },
 });
 
-export const {
-  updateQueryFilter,
-  updateCategoryFilter,
-  updatePriceFilter,
-  updateMileageFilter,
-} = filtersSlice.actions;
+export const { updateBrandFilter, updatePriceFilter, updateMileageFilter } =
+  filtersSlice.actions;
 
 export const filtersReducer = filtersSlice.reducer;

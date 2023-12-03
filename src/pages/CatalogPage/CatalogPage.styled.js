@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 export const CarItemsWrapperStyled = styled.ul`
   display: flex;
@@ -29,7 +28,7 @@ export const ImgCarStyled = styled.img`
 
 export const TextWrapperStyled = styled.div``;
 
-export const LinkBtnStyled = styled(Link)`
+export const LinkBtnStyled = styled.a`
   display: block;
   width: 100%;
 
