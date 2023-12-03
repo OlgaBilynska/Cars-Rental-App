@@ -32,6 +32,27 @@ export const getCars = createAsyncThunk("cars/getCars", async (_, thunkAPI) => {
   }
 });
 
+export const onPageChange = createAsyncThunk(
+  "cars/loadMore",
+  async (page, thunkAPI) => {
+    console.log("load more");
+    try {
+      page = page + 1;
+      const url = `/adverts?&page=${page}&limit=12`;
+
+      const { data } = await instance.get(url);
+
+      if (data.length < 12) {
+        toast.info("These are all the cars in the category.");
+      }
+
+      return data;
+    } catch {
+      toast.error("Something went wrong, try again.");
+    }
+  }
+);
+
 // export const getCarById = createAsyncThunk(
 //   "cars/getCarsById",
 //   async (_, thunkAPI) => {

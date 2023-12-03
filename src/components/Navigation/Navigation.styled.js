@@ -8,6 +8,8 @@ export const WrapperStyled = styled.div`
   padding: 22px 0;
 
   background-color: lightblue;
+
+  z-index: 100;
 `;
 
 export const NavWrapperStyled = styled.ul`

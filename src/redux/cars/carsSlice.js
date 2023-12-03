@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCars } from "./carsOperations";
+import { getCars, onPageChange } from "./carsOperations";
 
 const initialCarsState = {
   cars: [], // first 12 cars
+  page: 1,
   isLoading: false,
   error: null,
 };
@@ -25,7 +26,22 @@ const carsSlice = createSlice({
       .addCase(getCars.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(onPageChange.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.page = state.page + 1;
+        state.cars = action.payload;
+      })
+      .addCase(onPageChange.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(onPageChange.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
       }),
+
   // .addCase(getCarById.fulfilled, (state, action) => {
   //   state.isLoading = false;
   //   state.error = null;

@@ -23,11 +23,13 @@ import {
 } from "./CatalogPage.styled";
 import ModalContent from "../../components/ModalContent/ModalContent";
 import CarFilters from "../../components/CarFilters/CarFilters";
+import { onPageChange } from "../../redux/cars/carsOperations";
 
 const CatalogPage = () => {
   const carsList = useSelector(selectCars);
 
   const [modalOpen, setModalOpen] = useState(false);
+  const [page, setPage] = useState(1);
 
   const toggleModal = () => {
     // e.stopPropagation();
@@ -39,6 +41,18 @@ const CatalogPage = () => {
   useEffect(() => {
     dispatch(getCars());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(onPageChange(page));
+  }, [dispatch, page]);
+
+  const onLoadMore = () => {
+    // if (page === totalPage - 1) {
+    //   setIsLoadMore(true);
+    // }
+    setPage(page + 1);
+    console.log("page", page);
+  };
 
   return (
     <>
@@ -66,7 +80,13 @@ const CatalogPage = () => {
               <CarItemStyled key={carID}>
                 <ContentWrapperStyled>
                   <ImageWrapperStyled>
-                    <ImgCarStyled src={img} alt={description} />
+                    {img ? (
+                      <ImgCarStyled src={img} alt={description} />
+                    ) : (
+                      <svg>
+                        <use href={`${sprite}#icon-auto`} />
+                      </svg>
+                    )}
                     <HeartIconStyled>
                       <use href={`${sprite}#icon-heart`} />
                     </HeartIconStyled>
@@ -113,7 +133,9 @@ const CatalogPage = () => {
           }
         )}
       </CarItemsWrapperStyled>
-      <LoadMoreStyled>Load more</LoadMoreStyled>
+      <LoadMoreStyled type="button" onClick={onLoadMore}>
+        Load more
+      </LoadMoreStyled>
     </>
   );
 };

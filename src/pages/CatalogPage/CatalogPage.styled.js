@@ -104,7 +104,7 @@ export const AccentColStyled = styled.span`
   color: var(--color-button);
 `;
 
-export const LoadMoreStyled = styled.div`
+export const LoadMoreStyled = styled.button`
   margin-top: 100px;
 
   font-size: 16px;
