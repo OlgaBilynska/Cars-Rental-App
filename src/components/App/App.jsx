@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Loader from "../Loader";
 import { AppWrapperStyled } from "./App.styled.js";
 
@@ -22,11 +22,11 @@ function App() {
 
   let backgroundImage = null;
 
-  if (location.pathname === "/") {
-    return <Navigate to="/home" />;
-  }
+  // if (location.pathname === "/") {
+  //   return <Navigate to="/" />;
+  // }
 
-  if (location.pathname === "/home") {
+  if (location.pathname === "/") {
     backgroundImage = `url(${carBackground})`;
   }
 
@@ -36,7 +36,7 @@ function App() {
       <ContentWrapper>
         <Routes path="/" location={location} key={location.pathname}>
           <Route
-            path="/home"
+            path="/"
             element={<Suspense fallback={<Loader />}>{<HomePage />}</Suspense>}
           />
 
