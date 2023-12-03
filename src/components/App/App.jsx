@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Loader from "../Loader";
@@ -9,9 +9,13 @@ import ErrorPage from "../../pages/ErrorPage/ErrorPage.jsx";
 import ContentWrapper from "../ContentWrapper/ContentWrapper.jsx";
 import carBackground from "../../assets/car_background.jpg";
 
-const HomePage = lazy(() => import("../../pages/HomePage"));
-const CatalogPage = lazy(() => import("../../pages/CatalogPage"));
-const FavoritePage = lazy(() => import("../../pages/FavoritePage"));
+// const HomePage = lazy(() => import("../../pages/HomePage"));
+// const CatalogPage = lazy(() => import("../../pages/CatalogPage"));
+// const FavoritePage = lazy(() => import("../../pages/FavoritePage"));
+
+import HomePage from "../../pages/HomePage/HomePage.jsx";
+import CatalogPage from "../../pages/CatalogPage/CatalogPage.jsx";
+import FavoritePage from "../../pages/FavoritePage/FavoritePage.jsx";
 
 function App() {
   const location = useLocation();
