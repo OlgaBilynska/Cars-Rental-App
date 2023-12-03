@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-export const WrapperStyled = styled.div`
+export const WrapperStyled = styled.nav`
   position: fixed;
   top: 0px;
   left: 0px;
