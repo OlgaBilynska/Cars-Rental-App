@@ -34,7 +34,7 @@ function App() {
     <AppWrapperStyled $backgroundImage={backgroundImage}>
       <ToastContainer />
       <ContentWrapper>
-        <Routes path="/" location={location} key={location.pathname}>
+        <Routes location={location} key={location.pathname}>
           <Route
             path="/"
             element={<Suspense fallback={<Loader />}>{<HomePage />}</Suspense>}
