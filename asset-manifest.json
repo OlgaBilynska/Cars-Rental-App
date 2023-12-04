@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Cars-Rental-App/static/css/main.946ad867.css",
-    "main.js": "/Cars-Rental-App/static/js/main.ba115519.js",
-    "static/js/380.3eff2fe4.chunk.js": "/Cars-Rental-App/static/js/380.3eff2fe4.chunk.js",
+    "main.js": "/Cars-Rental-App/static/js/main.13a549a6.js",
+    "static/js/403.bc19c2f7.chunk.js": "/Cars-Rental-App/static/js/403.bc19c2f7.chunk.js",
     "static/js/52.657c83e5.chunk.js": "/Cars-Rental-App/static/js/52.657c83e5.chunk.js",
     "static/js/31.b797d29d.chunk.js": "/Cars-Rental-App/static/js/31.b797d29d.chunk.js",
     "static/js/787.03ada772.chunk.js": "/Cars-Rental-App/static/js/787.03ada772.chunk.js",
@@ -10,14 +10,14 @@
     "static/media/sprite.svg": "/Cars-Rental-App/static/media/sprite.fb1106d737f0d135a6329ae25fb5c0fd.svg",
     "index.html": "/Cars-Rental-App/index.html",
     "main.946ad867.css.map": "/Cars-Rental-App/static/css/main.946ad867.css.map",
-    "main.ba115519.js.map": "/Cars-Rental-App/static/js/main.ba115519.js.map",
-    "380.3eff2fe4.chunk.js.map": "/Cars-Rental-App/static/js/380.3eff2fe4.chunk.js.map",
+    "main.13a549a6.js.map": "/Cars-Rental-App/static/js/main.13a549a6.js.map",
+    "403.bc19c2f7.chunk.js.map": "/Cars-Rental-App/static/js/403.bc19c2f7.chunk.js.map",
     "52.657c83e5.chunk.js.map": "/Cars-Rental-App/static/js/52.657c83e5.chunk.js.map",
     "31.b797d29d.chunk.js.map": "/Cars-Rental-App/static/js/31.b797d29d.chunk.js.map",
     "787.03ada772.chunk.js.map": "/Cars-Rental-App/static/js/787.03ada772.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.946ad867.css",
-    "static/js/main.ba115519.js"
+    "static/js/main.13a549a6.js"
   ]
 }
