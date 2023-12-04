@@ -102,17 +102,17 @@ const CatalogPage = () => {
                       </svg>
                     )}
                     {favorite && id === clickedCarId ? (
-                      <button onClick={(toggleIcon, () => onCarItemClick(id))}>
+                      <button onClick={toggleIcon}>
                         <HeartIconStyled>
                           <use href={`${sprite}#icon-active`} />
                         </HeartIconStyled>
                       </button>
                     ) : (
-                      <div onClick={(toggleIcon, () => onCarItemClick(id))}>
+                      <button onClick={toggleIcon}>
                         <HeartIconStyled>
                           <use href={`${sprite}#icon-heart`} />
                         </HeartIconStyled>
-                      </div>
+                      </button>
                     )}
                   </ImageWrapperStyled>
 

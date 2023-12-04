@@ -108,6 +108,8 @@ export const HeartIconStyled = styled.svg`
 
   width: 18px;
   height: 18px;
+
+  fill: var(--color-button);
 `;
 
 export const ImageWrapperStyled = styled.div`

@@ -42,11 +42,7 @@ const CarFilters = () => {
     <FilterWrapperStyled>
       <LabelStyled>
         <SelectWrapperStyled>
-          <SelectBrandStyled
-            value={brand || ""}
-            onChange={handleBrandsChange}
-            // options={brandList}
-          >
+          <SelectBrandStyled value={brand || ""} onChange={handleBrandsChange}>
             <option hidden>Enter the text</option>
             <option>Buick</option>
             <option>Volvo</option>
@@ -76,7 +72,7 @@ const CarFilters = () => {
         <SelectWrapperStyled>
           <SelectPriceStyled
             value={price}
-            // onChange={handleBrandsChange}
+            onChange={handleBrandsChange}
             placeholder="To $"
             options={priceList}
           ></SelectPriceStyled>
@@ -86,7 +82,7 @@ const CarFilters = () => {
         <SelectWrapperStyled>
           <StyledInputOne
             value={mileage}
-            // onChange={handleBrandsChange}
+            onChange={handleBrandsChange}
             placeholder="From"
           />
           <StyledInputTwo placeholder="To" />
