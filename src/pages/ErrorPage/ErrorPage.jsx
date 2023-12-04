@@ -1,16 +1,25 @@
 import { TitleStyled } from "../FavoritePage/FavoritePage.styled";
 import sprite from "../../assets/sprite.svg";
-import { PictureError, TextError } from "./ErrorPage.styled";
+import {
+  ButtonErrorStyled,
+  ErrorWrapperStyled,
+  PictureError,
+  TextError,
+} from "./ErrorPage.styled";
+import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
   return (
-    <div>
+    <ErrorWrapperStyled>
       <TitleStyled>404</TitleStyled>
       <TextError>Oops, something went wrong...</TextError>
       <PictureError>
         <use href={`${sprite}#icon-car-crash`} />
       </PictureError>
-    </div>
+      <Link to="/">
+        <ButtonErrorStyled>Go to Home Page</ButtonErrorStyled>
+      </Link>
+    </ErrorWrapperStyled>
   );
 };
 
