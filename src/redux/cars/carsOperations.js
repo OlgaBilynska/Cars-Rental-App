@@ -3,7 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const toastError = (text) => {
+export const toastError = (text) => {
   toast.error(text, {
     position: "top-center",
     autoClose: 7000,

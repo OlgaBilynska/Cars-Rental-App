@@ -41,20 +41,6 @@ const carsSlice = createSlice({
         state.error = action.payload;
         state.isLoading = false;
       }),
-
-  // .addCase(getCarById.fulfilled, (state, action) => {
-  //   state.isLoading = false;
-  //   state.error = null;
-  //   state.brand = action.payload;
-  // })
-  // .addCase(getCarById.pending, (state) => {
-  //   state.isLoading = true;
-  //   state.error = null;
-  // })
-  // .addCase(getCarById.rejected, (state, action) => {
-  //   state.isLoading = false;
-  //   state.error = action.payload;
-  // }),
 });
 
 export const carsReducer = carsSlice.reducer;

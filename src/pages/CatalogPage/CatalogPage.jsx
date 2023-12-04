@@ -25,6 +25,7 @@ import ModalContent from "../../components/ModalContent/ModalContent";
 import CarFilters from "../../components/CarFilters/CarFilters";
 import { onPageChange } from "../../redux/cars/carsOperations";
 import Navigation from "../../components/Navigation";
+import { getFavorite } from "../../redux/favorites/favoritesOperations";
 
 const CatalogPage = () => {
   const carsList = useSelector(selectCars);
@@ -32,6 +33,11 @@ const CatalogPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [page, setPage] = useState(1);
   const [clickedCarId, setClickedCarId] = useState(null);
+  const [favorite, setFavorite] = useState(false);
+
+  const toggleIcon = () => {
+    setFavorite((prevState) => !prevState);
+  };
 
   const toggleModal = () => {
     setModalOpen((prevState) => !prevState);
@@ -41,6 +47,10 @@ const CatalogPage = () => {
 
   useEffect(() => {
     dispatch(getCars());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getFavorite());
   }, [dispatch]);
 
   useEffect(() => {
@@ -89,9 +99,19 @@ const CatalogPage = () => {
                         <use href={`${sprite}#icon-auto`} />
                       </svg>
                     )}
-                    <HeartIconStyled>
-                      <use href={`${sprite}#icon-heart`} />
-                    </HeartIconStyled>
+                    {favorite && id === clickedCarId ? (
+                      <button onClick={(toggleIcon, () => onCarItemClick(id))}>
+                        <HeartIconStyled>
+                          <use href={`${sprite}#icon-active`} />
+                        </HeartIconStyled>
+                      </button>
+                    ) : (
+                      <button onClick={(toggleIcon, () => onCarItemClick(id))}>
+                        <HeartIconStyled>
+                          <use href={`${sprite}#icon-heart`} />
+                        </HeartIconStyled>
+                      </button>
+                    )}
                   </ImageWrapperStyled>
 
                   <TextWrapperStyled>
@@ -124,7 +144,9 @@ const CatalogPage = () => {
                   </TextWrapperStyled>
                 </ContentWrapperStyled>
 
-                <LinkBtnStyled onClick={() => onCarItemClick(id)}>
+                <LinkBtnStyled
+                  onClick={(toggleModal, () => onCarItemClick(id))}
+                >
                   Learn More
                 </LinkBtnStyled>
                 {modalOpen && id === clickedCarId && (
