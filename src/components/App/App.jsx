@@ -1,7 +1,7 @@
-import { Suspense } from "react";
+// import { Suspense } from "react";
 
 import { Route, Routes, useLocation } from "react-router-dom";
-import Loader from "../Loader";
+// import Loader from "../Loader";
 import { AppWrapperStyled } from "./App.styled.js";
 
 import { ToastContainer } from "react-toastify";
@@ -35,26 +35,11 @@ function App() {
       <ToastContainer />
       <ContentWrapper>
         <Routes location={location} key={location.pathname}>
-          <Route
-            path="/"
-            element={<Suspense fallback={<Loader />}>{<HomePage />}</Suspense>}
-          />
+          <Route path="/" element={<HomePage />} />
 
-          <Route
-            path="/catalog"
-            element={
-              <Suspense fallback={<Loader />}>{<CatalogPage />}</Suspense>
-            }
-          />
+          <Route path="/catalog" element={<CatalogPage />} />
 
-          <Route
-            path="/favorites"
-            element={
-              <Suspense fallback={<Loader />}>
-                <FavoritePage />
-              </Suspense>
-            }
-          />
+          <Route path="/favorites" element={<FavoritePage />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </ContentWrapper>
