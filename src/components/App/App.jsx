@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { lazy } from "react";
 
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import Loader from "../Loader";
@@ -29,6 +29,10 @@ function App() {
 
   if (location.pathname === "/") {
     backgroundImage = `url(${carBackground})`;
+  }
+
+  if (location.pathname === "/home") {
+    return <Navigate to="/" />;
   }
 
   return (
