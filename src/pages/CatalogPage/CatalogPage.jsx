@@ -43,7 +43,9 @@ const CatalogPage = () => {
   const [favorite, setFavorite] = useState(favoriteCars);
 
   const toggleIcon = (carId) => {
-    setFavorite(dispatch(addFavorite(carId)));
+    setFavorite(carId);
+    const choosenFavCar = carsList.find((car) => car.id === carId);
+    dispatch(addFavorite(choosenFavCar));
   };
 
   const toggleModal = () => {
