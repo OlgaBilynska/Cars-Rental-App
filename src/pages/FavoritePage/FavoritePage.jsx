@@ -24,7 +24,6 @@ import {
 
 const FavoritePage = () => {
   const favoriteList = useSelector(selectFavoriteCars);
-  console.log("fav", favoriteList);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [clickedCarId, setClickedCarId] = useState(null);
