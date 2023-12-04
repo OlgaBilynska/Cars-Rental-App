@@ -1,7 +1,7 @@
 <h1>Drive Wonders - Car Rental Service</h1>
 
 <h2>Overview</h2>
-"Drive Wonders" is a modern car rental service that allows users to browse and rent cars for their travel needs. This web application is built using React and Redux for state management, and it utilizes MockAPI for simulating a backend server.
+"Drive Wonders" is a modern car rental service in Ukraine that allows users to browse and rent cars for their travel needs. This web application is built using React and Redux for state management, and it utilizes MockAPI for simulating a backend server.
 
 <h2>Features</h2>
 
