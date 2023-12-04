@@ -43,7 +43,6 @@ const CatalogPage = () => {
   const [favorite, setFavorite] = useState(favoriteCars);
 
   const toggleIcon = (carId) => {
-    console.log("toggle");
     setFavorite(dispatch(addFavorite(carId)));
   };
 
@@ -73,7 +72,6 @@ const CatalogPage = () => {
   };
 
   const onHeartClick = (carID) => {
-    console.log("heart");
     setClickedCarId(carID);
     toggleIcon(carID);
   };
