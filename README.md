@@ -16,14 +16,14 @@ Rental Process: Seamless rental process with options for selecting rental durati
 
 Order Summary: Clear order summary before confirming the rental.
 
-Technologies Used
+<h2>Technologies Used</h2>
 React: A JavaScript library for building user interfaces.
 
 Redux: A predictable state container for managing the application's state.
 
 MockAPI: A tool for simulating a backend server, enabling the development of frontend features without a real backend.
 
-Getting Started
+<h2>Getting Started</h2>
 Prerequisites
 Node.js installed on your machine.
 Installation
@@ -49,7 +49,7 @@ Copy code
 npm start
 Open your browser and visit http://localhost:3000 to see the application.
 
-Project Structure
+<h2>Project Structure</h2>
 src/components: React components used throughout the application.
 
 src/pages: Three main pages of the application, and the Error Page.
@@ -58,12 +58,12 @@ src/redux: Redux actions, reducers, and store configuration.
 
 public: Static assets and HTML template.
 
-Contributing
+<h2>Contributing</h2>
 Full-stack developer - Olga Bilynska.
 GitHub:https://github.com/OlgaBilynska
 LinkedIn:https://www.linkedin.com/in/olga-bilynska/
 
 If you want to contribute to this project, please fork the repository and submit a pull request.
 
-Acknowledgments
+<h2>Acknowledgments</h2>
 Thanks to the React and Redux communities for providing excellent tools and resources.

@@ -49,15 +49,12 @@ const CatalogPage = () => {
 
   const onLoadMore = () => {
     setPage(page + 1);
-    console.log("page", page);
   };
 
   const onCarItemClick = (carID) => {
     setClickedCarId(carID);
     toggleModal();
   };
-
-  // const carID = nanoid();
 
   return (
     <>

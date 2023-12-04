@@ -24,30 +24,12 @@ const CarFilters = () => {
   const brand = useSelector(selectCarsByBrand);
   const price = useSelector(selectPriceFilter);
   const mileage = useSelector(selectMileageFilter);
-  console.log("c", cars[0]);
-  // const selectCarByBrand = cars.map(car => car.make === )
 
   const dispatch = useDispatch();
-
-  //   useEffect(() => {
-  //     dispatch(cars);
-  //   }, [dispatch, cars]);
 
   const handleBrandsChange = (e) => {
     dispatch(updateBrandFilter(e));
   };
-
-  //   const capitalizeString = (string) => {
-  //     return `${string[0].toUpperCase()}${string.slice(1)}`;
-  //   };
-
-  //   const brandList = [
-  //     { value: "all", label: "All brands" },
-  //     ...cars.map(({ id, make }) => ({
-  //       value: id,
-  //       label: make,
-  //     })),
-  //   ];
 
   const priceList = [
     ...cars.map(({ id, rentalPrice }) => ({
@@ -55,8 +37,6 @@ const CarFilters = () => {
       label: rentalPrice,
     })),
   ];
-
-  //   console.log("b", brandList);
 
   return (
     <FilterWrapperStyled>
