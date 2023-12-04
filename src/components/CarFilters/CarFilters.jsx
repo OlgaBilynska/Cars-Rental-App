@@ -47,14 +47,28 @@ const CarFilters = () => {
             onChange={handleBrandsChange}
             // options={brandList}
           >
-            <option disabled value="">
-              Select your brand
-            </option>
-            {/* {brandList.map((brandOption) => (
-              <option key={brandOption} value={brandOption}>
-                {brandOption}
-              </option>
-            ))} */}
+            <option hidden>Enter the text</option>
+            <option>Buick</option>
+            <option>Volvo</option>
+            <option>HUMMER</option>
+            <option>Subaru</option>
+            <option>Mitsubishi</option>
+            <option>Nissan</option>
+            <option>Lincoln</option>
+            <option>GMC</option>
+            <option>Hyundai</option>
+            <option>MINI</option>
+            <option>Bentley</option>
+            <option>Mercedes-Benz</option>
+            <option>Aston Martin</option>
+            <option>Pontiac</option>
+            <option>Lamborghini</option>
+            <option>Audi</option>
+            <option>BMW</option>
+            <option>Chevrolet</option>
+            <option>Chrysler</option>
+            <option>Kia</option>
+            <option>Land</option>
           </SelectBrandStyled>
           <FilterNameStyled>Car Brand</FilterNameStyled>
         </SelectWrapperStyled>
