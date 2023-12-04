@@ -42,80 +42,75 @@ const FavoritePage = () => {
       <Navigation />
       <TitleStyled>Your Favorite Cars</TitleStyled>
       <CarItemsWrapperStyled>
-        <ul>
-          {favoriteList.map(
-            ({
-              id,
-              year,
-              make,
-              model,
-              type,
-              img,
-              description,
-              fuelConsumption,
-              engineSize,
-              accessories,
-              functionalities,
-              rentalPrice,
-              rentalCompany,
-              address,
-            }) => (
-              <CarItemStyled key={nanoid()}>
-                <ContentWrapperStyled>
-                  <ImageWrapperStyled>
-                    {img ? (
-                      <ImgCarStyled src={img} alt={description} />
-                    ) : (
-                      <svg>
-                        <use href={`${sprite}#icon-auto`} />
-                      </svg>
-                    )}
-                  </ImageWrapperStyled>
+        {favoriteList.map(
+          ({
+            id,
+            year,
+            make,
+            model,
+            type,
+            img,
+            description,
+            fuelConsumption,
+            engineSize,
+            accessories,
+            functionalities,
+            rentalPrice,
+            rentalCompany,
+            address,
+          }) => (
+            <CarItemStyled key={nanoid()}>
+              <ContentWrapperStyled>
+                <ImageWrapperStyled>
+                  {img ? (
+                    <ImgCarStyled src={img} alt={description} />
+                  ) : (
+                    <svg>
+                      <use href={`${sprite}#icon-auto`} />
+                    </svg>
+                  )}
+                </ImageWrapperStyled>
 
-                  <TextWrapperStyled>
-                    <TitleWrapperStyled>
-                      <p>
-                        {make} <AccentColStyled>{model}</AccentColStyled>,{" "}
-                        {year}
-                      </p>
+                <TextWrapperStyled>
+                  <TitleWrapperStyled>
+                    <p>
+                      {make} <AccentColStyled>{model}</AccentColStyled>, {year}
+                    </p>
 
-                      <p>{rentalPrice}</p>
-                    </TitleWrapperStyled>
+                    <p>{rentalPrice}</p>
+                  </TitleWrapperStyled>
 
-                    <InfoWrapperStyled>
-                      <InfoItemStyled>
-                        {address.split(",").splice(1, 1)}
-                      </InfoItemStyled>
-                      <InfoItemStyled>
-                        {address.split(",").splice(2, 1)}
-                      </InfoItemStyled>
-                      <InfoItemStyled>{rentalCompany}</InfoItemStyled>
-                    </InfoWrapperStyled>
-                    <InfoWrapperStyled>
-                      <InfoItemStyled>{type}</InfoItemStyled>
-                      <InfoItemStyled>{model}</InfoItemStyled>
-                      <InfoItemStyled>{id}</InfoItemStyled>
-                      <InfoItemLastStyled>
-                        {functionalities[0]}
-                      </InfoItemLastStyled>
-                    </InfoWrapperStyled>
-                  </TextWrapperStyled>
-                </ContentWrapperStyled>
+                  <InfoWrapperStyled>
+                    <InfoItemStyled>
+                      {address.split(",").splice(1, 1)}
+                    </InfoItemStyled>
+                    <InfoItemStyled>
+                      {address.split(",").splice(2, 1)}
+                    </InfoItemStyled>
+                    <InfoItemStyled>{rentalCompany}</InfoItemStyled>
+                  </InfoWrapperStyled>
+                  <InfoWrapperStyled>
+                    <InfoItemStyled>{type}</InfoItemStyled>
+                    <InfoItemStyled>{model}</InfoItemStyled>
+                    <InfoItemStyled>{id}</InfoItemStyled>
+                    <InfoItemLastStyled>
+                      {functionalities[0]}
+                    </InfoItemLastStyled>
+                  </InfoWrapperStyled>
+                </TextWrapperStyled>
+              </ContentWrapperStyled>
 
-                <LinkBtnStyled
-                  onClick={(toggleModal, () => onCarItemClick(id))}
-                >
-                  Learn More
-                </LinkBtnStyled>
-                {modalOpen && id === clickedCarId && (
-                  <ModalCarItem onClick={toggleModal}>
-                    <ModalContent id={id} />
-                  </ModalCarItem>
-                )}
-              </CarItemStyled>
-            )
-          )}
-        </ul>
+              <LinkBtnStyled onClick={(toggleModal, () => onCarItemClick(id))}>
+                Learn More
+              </LinkBtnStyled>
+              {modalOpen && id === clickedCarId && (
+                <ModalCarItem onClick={toggleModal}>
+                  <ModalContent id={id} />
+                </ModalCarItem>
+              )}
+            </CarItemStyled>
+          )
+        )}
       </CarItemsWrapperStyled>
     </>
   );
