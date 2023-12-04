@@ -6,7 +6,7 @@ import {
 } from "./favoritesOperations";
 
 const favoriteInitialState = {
-  favorite: [],
+  favorites: [],
   isLoading: false,
   error: null,
 };
@@ -20,7 +20,7 @@ const favoriteSlice = createSlice({
       .addCase(getFavorite.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.cars = action.payload;
+        state.favorites = action.payload;
       })
       .addCase(getFavorite.pending, (state) => {
         state.isLoading = true;
@@ -31,7 +31,7 @@ const favoriteSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(addFavorite.fulfilled, (state, action) => {
-        state.favorite = [...state.favorite, ...action.payload];
+        state.favorites = [...state.favorites, ...action.payload];
         state.isLoading = false;
         state.error = null;
       })
@@ -44,10 +44,10 @@ const favoriteSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(deleteFavorite.fulfilled, (state, action) => {
-        const index = state.favorite.findIndex(
+        const index = state.favorites.findIndex(
           (favoriteCar) => favoriteCar.id === action.payload.id
         );
-        state.items.splice(index, 1);
+        state.favorites.splice(index, 1);
         state.isLoading = false;
         state.error = false;
       })

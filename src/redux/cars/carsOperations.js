@@ -16,7 +16,7 @@ export const toastError = (text) => {
   });
 };
 
-export const instance = axios.create({
+const instance = axios.create({
   baseURL: "https://6568bbf19927836bd9755827.mockapi.io/api/cars",
 });
 

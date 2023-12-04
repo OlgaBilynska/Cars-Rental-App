@@ -1,6 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { instance } from "../cars/carsOperations";
+import axios from "axios";
 import { toastError } from "../cars/carsOperations";
+
+const instance = axios.create({
+  baseURL: "https://6568bbf19927836bd9755827.mockapi.io/api/cars",
+});
 
 export const getFavorite = createAsyncThunk(
   "favorites/getFavorite",

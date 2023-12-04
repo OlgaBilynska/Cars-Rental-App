@@ -16,14 +16,14 @@ import { filtersReducer } from "./filters/filterSlice";
 import { favoriteReducer } from "./favorites/favoriteSlice";
 
 const favoritePersistConfig = {
-  key: "favorite",
+  key: "root",
   storage,
 };
 
 const combinedReducers = combineReducers({
   cars: carsReducer,
   filters: filtersReducer,
-  favorite: persistReducer(favoritePersistConfig, favoriteReducer),
+  favorites: persistReducer(favoritePersistConfig, favoriteReducer),
 });
 
 export const store = configureStore({

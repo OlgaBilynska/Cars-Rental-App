@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
 import ModalCarItem from "../../components/ModalCarItem";
-import { selectCars } from "../../redux/selectors";
-import { getCars } from "../../redux/cars/carsOperations";
+import { selectCars, selectFavoriteCars } from "../../redux/selectors";
+
 import sprite from "../../assets/sprite.svg";
 import {
   CarItemsWrapperStyled,
@@ -29,9 +29,11 @@ import { getFavorite } from "../../redux/favorites/favoritesOperations";
 
 const CatalogPage = () => {
   const carsList = useSelector(selectCars);
+  const favoriteList = useSelector(selectFavoriteCars);
+  console.log("fav", favoriteList);
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [clickedCarId, setClickedCarId] = useState(null);
   const [favorite, setFavorite] = useState(false);
 
@@ -46,15 +48,15 @@ const CatalogPage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCars());
-  }, [dispatch]);
-
-  useEffect(() => {
     dispatch(getFavorite());
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(onPageChange(page));
+    if (page === 0) {
+      return;
+    } else {
+      dispatch(onPageChange(page));
+    }
   }, [dispatch, page]);
 
   const onLoadMore = () => {
