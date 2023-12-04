@@ -20,7 +20,9 @@ import {
   LoadMoreStyled,
   HeartIconStyled,
   ImageWrapperStyled,
-} from "./CatalogPage.styled";
+  BtnHeartStyled,
+} from "../CatalogPage/CatalogPage.styled";
+
 import ModalContent from "../../components/ModalContent/ModalContent";
 import CarFilters from "../../components/CarFilters/CarFilters";
 import { onPageChange } from "../../redux/cars/carsOperations";
@@ -101,18 +103,18 @@ const CatalogPage = () => {
                         <use href={`${sprite}#icon-auto`} />
                       </svg>
                     )}
-                    {favorite && id === clickedCarId ? (
-                      <button onClick={toggleIcon}>
+                    {favorite ? (
+                      <BtnHeartStyled onClick={toggleIcon}>
                         <HeartIconStyled>
                           <use href={`${sprite}#icon-active`} />
                         </HeartIconStyled>
-                      </button>
+                      </BtnHeartStyled>
                     ) : (
-                      <button onClick={toggleIcon}>
+                      <BtnHeartStyled onClick={toggleIcon}>
                         <HeartIconStyled>
                           <use href={`${sprite}#icon-heart`} />
                         </HeartIconStyled>
-                      </button>
+                      </BtnHeartStyled>
                     )}
                   </ImageWrapperStyled>
 

@@ -101,11 +101,16 @@ export const AccentColStyled = styled.span`
   color: var(--color-button);
 `;
 
-export const HeartIconStyled = styled.svg`
+export const BtnHeartStyled = styled.button`
   position: absolute;
   top: 14px;
   right: 14px;
 
+  background-color: transparent;
+  border: none;
+`;
+
+export const HeartIconStyled = styled.svg`
   width: 18px;
   height: 18px;
 
