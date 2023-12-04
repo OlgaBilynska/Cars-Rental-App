@@ -146,9 +146,7 @@ const CatalogPage = () => {
                   </TextWrapperStyled>
                 </ContentWrapperStyled>
 
-                <LinkBtnStyled
-                  onClick={(toggleModal, () => onCarItemClick(id))}
-                >
+                <LinkBtnStyled onClick={() => onCarItemClick(id)}>
                   Learn More
                 </LinkBtnStyled>
                 {modalOpen && id === clickedCarId && (
