@@ -27,27 +27,29 @@ import ModalContent from "../../components/ModalContent/ModalContent";
 import CarFilters from "../../components/CarFilters/CarFilters";
 import { onPageChange } from "../../redux/cars/carsOperations";
 import Navigation from "../../components/Navigation";
-import { getFavorite } from "../../redux/favorites/favoritesOperations";
+import {
+  addFavorite,
+  getFavorite,
+} from "../../redux/favorites/favoritesOperations";
 
 const CatalogPage = () => {
+  const dispatch = useDispatch();
   const carsList = useSelector(selectCars);
-  const favoriteList = useSelector(selectFavoriteCars);
-  console.log("fav", favoriteList);
+  const favoriteCars = useSelector(selectFavoriteCars);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [page, setPage] = useState(0);
   const [clickedCarId, setClickedCarId] = useState(null);
-  const [favorite, setFavorite] = useState(false);
+  const [favorite, setFavorite] = useState(favoriteCars);
 
-  const toggleIcon = () => {
-    setFavorite((prevState) => !prevState);
+  const toggleIcon = (carId) => {
+    console.log("toggle");
+    setFavorite(dispatch(addFavorite(carId)));
   };
 
   const toggleModal = () => {
     setModalOpen((prevState) => !prevState);
   };
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getFavorite());
@@ -68,6 +70,12 @@ const CatalogPage = () => {
   const onCarItemClick = (carID) => {
     setClickedCarId(carID);
     toggleModal();
+  };
+
+  const onHeartClick = (carID) => {
+    console.log("heart");
+    setClickedCarId(carID);
+    toggleIcon(carID);
   };
 
   return (
@@ -103,14 +111,22 @@ const CatalogPage = () => {
                         <use href={`${sprite}#icon-auto`} />
                       </svg>
                     )}
-                    {favorite ? (
-                      <BtnHeartStyled onClick={toggleIcon}>
+                    {favorite && id === clickedCarId ? (
+                      <BtnHeartStyled
+                        onClick={() => {
+                          onHeartClick(id);
+                        }}
+                      >
                         <HeartIconStyled>
                           <use href={`${sprite}#icon-active`} />
                         </HeartIconStyled>
                       </BtnHeartStyled>
                     ) : (
-                      <BtnHeartStyled onClick={toggleIcon}>
+                      <BtnHeartStyled
+                        onClick={() => {
+                          onHeartClick(id);
+                        }}
+                      >
                         <HeartIconStyled>
                           <use href={`${sprite}#icon-heart`} />
                         </HeartIconStyled>

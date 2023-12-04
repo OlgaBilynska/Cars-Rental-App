@@ -28,6 +28,7 @@ export const addFavorite = createAsyncThunk(
       const url = `/favorites`;
 
       const { data } = await instance.post(url, car);
+      console.log("data", data);
       return data;
     } catch (e) {
       toastError(`Oops! Something went wrong! ${e.response.data}`);
@@ -50,5 +51,3 @@ export const deleteFavorite = createAsyncThunk(
     }
   }
 );
-
-export const updateFavorites = createAsyncThunk("favorites/updateFavorites");
