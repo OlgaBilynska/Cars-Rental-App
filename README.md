@@ -63,16 +63,25 @@ Clone by this link: https://mockapi.io/clone/6568bbf19927836bd9755828
 
 Endpoints for Catalog:
 GET: "/advert"
+
 GET: "/adverts/:id"
+
 POST: "/adverts"
+
 PUT: "/adverts/:id"
+
 DELETE: "/adverts/:id"
 
 Endpoints for Favorites:
+
 GET: "/favorites"
+
 GET: "/favorites/:id"
+
 POST: "/favorites"
+
 PUT: "/favorites/:id"
+
 DELETE: "/favorites/:id"
 
 <h2>Contributing</h2>
