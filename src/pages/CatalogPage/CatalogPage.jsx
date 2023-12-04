@@ -29,6 +29,7 @@ import { onPageChange } from "../../redux/cars/carsOperations";
 import Navigation from "../../components/Navigation";
 import {
   addFavorite,
+  deleteFavorite,
   getFavorite,
 } from "../../redux/favorites/favoritesOperations";
 
@@ -40,12 +41,21 @@ const CatalogPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [page, setPage] = useState(0);
   const [clickedCarId, setClickedCarId] = useState(null);
-  const [favorite, setFavorite] = useState(favoriteCars);
+
+  const isFavoriteCar = (carId) => {
+    const car = favoriteCars.find((car) => car.id === carId);
+    return car;
+  };
 
   const toggleIcon = (carId) => {
-    setFavorite(carId);
-    const choosenFavCar = carsList.find((car) => car.id === carId);
-    dispatch(addFavorite(choosenFavCar));
+    const foundFavCar = favoriteCars.find((car) => car.id === carId);
+
+    if (foundFavCar) {
+      dispatch(deleteFavorite(foundFavCar._id));
+    } else {
+      const chosenFavCar = carsList.find((car) => car.id === carId);
+      dispatch(addFavorite(chosenFavCar));
+    }
   };
 
   const toggleModal = () => {
@@ -76,6 +86,7 @@ const CatalogPage = () => {
   const onHeartClick = (carID) => {
     setClickedCarId(carID);
     toggleIcon(carID);
+    isFavoriteCar(carID);
   };
 
   return (
@@ -111,7 +122,7 @@ const CatalogPage = () => {
                         <use href={`${sprite}#icon-auto`} />
                       </svg>
                     )}
-                    {favorite && id === clickedCarId ? (
+                    {isFavoriteCar(id) ? (
                       <BtnHeartStyled
                         onClick={() => {
                           onHeartClick(id);

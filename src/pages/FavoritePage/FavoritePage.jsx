@@ -1,12 +1,18 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { nanoid } from "nanoid";
+import { useDispatch } from "react-redux";
 import Navigation from "../../components/Navigation";
 import { TitleStyled } from "./FavoritePage.styled";
 import { selectFavoriteCars } from "../../redux/selectors";
 import ModalCarItem from "../../components/ModalCarItem";
 import ModalContent from "../../components/ModalContent/ModalContent";
 import sprite from "../../assets/sprite.svg";
+import { selectCars } from "../../redux/selectors";
+import {
+  addFavorite,
+  deleteFavorite,
+} from "../../redux/favorites/favoritesOperations";
 import {
   CarItemsWrapperStyled,
   CarItemStyled,
@@ -20,13 +26,35 @@ import {
   ContentWrapperStyled,
   AccentColStyled,
   ImageWrapperStyled,
+  BtnHeartStyled,
+  HeartIconStyled,
 } from "../CatalogPage/CatalogPage.styled";
 
 const FavoritePage = () => {
-  const favoriteList = useSelector(selectFavoriteCars);
+  const dispatch = useDispatch();
+  const carsList = useSelector(selectCars);
+  const favoriteCars = useSelector(selectFavoriteCars);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [clickedCarId, setClickedCarId] = useState(null);
+
+  const isFavoriteCar = (carId) => {
+    const car = favoriteCars.find((car) => car.id === carId);
+    return car;
+  };
+
+  const toggleIcon = (carId) => {
+    const foundFavCar = favoriteCars.find((car) => {
+      return car.id === carId;
+    });
+
+    if (foundFavCar) {
+      dispatch(deleteFavorite(foundFavCar._id));
+    } else {
+      const chosenFavCar = carsList.find((car) => car.id === carId);
+      dispatch(addFavorite(chosenFavCar));
+    }
+  };
 
   const toggleModal = () => {
     setModalOpen((prevState) => !prevState);
@@ -37,12 +65,17 @@ const FavoritePage = () => {
     toggleModal();
   };
 
+  const onHeartClick = (carID) => {
+    setClickedCarId(carID);
+    toggleIcon(carID);
+  };
+
   return (
     <>
       <Navigation />
       <TitleStyled>Your Favorite Cars</TitleStyled>
       <CarItemsWrapperStyled>
-        {favoriteList.map(
+        {favoriteCars.map(
           ({
             id,
             year,
@@ -68,6 +101,27 @@ const FavoritePage = () => {
                     <svg>
                       <use href={`${sprite}#icon-auto`} />
                     </svg>
+                  )}
+                  {isFavoriteCar(id) ? (
+                    <BtnHeartStyled
+                      onClick={() => {
+                        onHeartClick(id);
+                      }}
+                    >
+                      <HeartIconStyled>
+                        <use href={`${sprite}#icon-active`} />
+                      </HeartIconStyled>
+                    </BtnHeartStyled>
+                  ) : (
+                    <BtnHeartStyled
+                      onClick={() => {
+                        onHeartClick(id);
+                      }}
+                    >
+                      <HeartIconStyled>
+                        <use href={`${sprite}#icon-heart`} />
+                      </HeartIconStyled>
+                    </BtnHeartStyled>
                   )}
                 </ImageWrapperStyled>
 

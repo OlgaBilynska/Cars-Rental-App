@@ -40,9 +40,9 @@ export const deleteFavorite = createAsyncThunk(
   "favorites/deleteFavorite",
   async (carId, thunkAPI) => {
     try {
-      const url = `/favorites/:id`;
+      const url = `/favorites`;
 
-      const { data } = await instance.delete(url + `${carId}`);
+      const { data } = await instance.delete(`${url}/${carId}`);
       return data;
     } catch (e) {
       toastError(`Oops! Something went wrong! ${e.response.data}`);
