@@ -108,11 +108,11 @@ const CatalogPage = () => {
                         </HeartIconStyled>
                       </button>
                     ) : (
-                      <button onClick={(toggleIcon, () => onCarItemClick(id))}>
+                      <div onClick={(toggleIcon, () => onCarItemClick(id))}>
                         <HeartIconStyled>
                           <use href={`${sprite}#icon-heart`} />
                         </HeartIconStyled>
-                      </button>
+                      </div>
                     )}
                   </ImageWrapperStyled>
 
