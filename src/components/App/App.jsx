@@ -43,22 +43,21 @@ function App() {
           <Route
             path="/"
             element={<Suspense fallback={<Loader />}>{<HomePage />}</Suspense>}
-          >
-            <Route
-              path="catalog"
-              element={
-                <Suspense fallback={<Loader />}>{<CatalogPage />}</Suspense>
-              }
-            />
-            <Route
-              path="favorites"
-              element={
-                <Suspense fallback={<Loader />}>
-                  <FavoritePage />
-                </Suspense>
-              }
-            />
-          </Route>
+          />
+          <Route
+            path="catalog"
+            element={
+              <Suspense fallback={<Loader />}>{<CatalogPage />}</Suspense>
+            }
+          />
+          <Route
+            path="favorites"
+            element={
+              <Suspense fallback={<Loader />}>
+                <FavoritePage />
+              </Suspense>
+            }
+          />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </ContentWrapper>
